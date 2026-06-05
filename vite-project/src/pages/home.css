@@ -1,0 +1,123 @@
+.hero{
+    margin: auto;
+    text-align: center;
+}
+
+.container{
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 0 40px;
+    max-width: 1000px;
+}
+
+.home-page{
+  background-color: #f6f7fb;
+  min-height: 100vh;
+  padding: 0 20px 60px;
+  margin-top: 30px;
+}
+
+.hero{
+    margin: 0 auto;
+    text-align: center;
+    padding: 60px 0 20px;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 1rem;
+  color: #606b80;
+  margin: 0;
+}
+.prod-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.prod{
+    background-color: #ffffff;
+    border-radius: 18px;
+    padding: 0;
+    overflow: hidden;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.prod img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.prod-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-grow: 1;
+}
+
+.prod-content h2 {
+    margin: 0;
+    font-size: 1.15rem;
+}
+
+.prod-content p {
+    margin: 0;
+    color: #2b3445;
+    font-weight: 700;
+}
+
+.btn12{
+    
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 20px;
+    flex-direction: row;
+    
+}
+
+/* From Uiverse.io by sekaiking */ 
+.btn1 {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #111827;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  border: 1px solid #d1d5db;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06);
+  text-decoration: none;
+}
+
+.btn1-secondary {
+  background-color: #10baf8;
+  color: white;
+  border-color: #10baf8;
+}
+
+.btn1:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+}
+
+.btn1:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(15, 23, 42, 0.08);
+}

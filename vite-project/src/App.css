@@ -1,0 +1,23 @@
+body{
+  margin: 0;
+}
+
+/* App root - normal background */
+.app{
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+/* Lighter background and overlay when the app has the `dimmed` class (e.g. login route) */
+.app.dimmed{
+  background-color: #fbfbfb;
+}
+
+.app.dimmed::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 20;
+  pointer-events: none;
+}
