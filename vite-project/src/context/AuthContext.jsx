@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+//creates global function ,can be called anywhere
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({ children }) {
@@ -12,22 +12,23 @@ export default function AuthProvider({ children }) {
 
         if(users.find(u=>u.email===email && u.password===password)){
             //if already smae email and apswwrod exist
-            return({success:"nope" , error:"User already exists"})
+            return({success:false , error:"User already exists"})
         }
         const newUser = { email, password };
         users.push(newUser);
         localStorage.setItem("users", JSON.stringify(users));
         localStorage.setItem("currentUserEmail",email);
         setUser({email});//sets users as email
-        return({success:"yes"});
+        return({success:true});
     }
     function login(email,password){
         const users = JSON.parse(localStorage.getItem("users") || "[]");
         const user = users.find(u=>u.email===email && u.password===password);
         if(!user){
             //if no such user exist
-            return({success:"no" ,message:"This user doesn't exist"});
             alert(message);
+            return({success:false ,message:"This user doesn't exist"});
+            
         }
         localStorage.setItem("currentUserEmail",email);
         setUser({email});

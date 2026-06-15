@@ -1,8 +1,12 @@
 import './home.css'
 import { getProducts } from '../data/product'
 import {Link} from 'react-router-dom'
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
+import ProductCart from './ProductCard';
 export default function Home(){
     const products = getProducts();
+    const {cart,addToCart} = useContext(CartContext);
     return(
         <div className='home-page'>
             <div className='hero'>
@@ -13,20 +17,10 @@ export default function Home(){
                 <h2>Our Products</h2>
                 <div className='prod-list'>
                     {products.map(prod => (
-                        <div className='prod' key={prod.id}>
-                            <img src={prod.image} alt={prod.name} />
-                            <div className='prod-content'>
-                                <h2>{prod.name}</h2>
-                                <p>${prod.price}</p>
-                            </div>
-                            <div className='btn12'>
-                                <Link className='btn1'>View Details</Link>
-                                <button className='btn1 btn1-secondary'>Add to Cart</button>
-                            </div>
-                        </div>
+                        <ProductCart  product={prod} key={prod.id}/>
                     ))}
                 </div>
-            </div>
+            </div> 
         </div>
     )
 }

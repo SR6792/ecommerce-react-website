@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import './auth.css'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -6,12 +6,14 @@ import { AuthContext } from '../context/AuthContext';
 export default function Auth(){
     const { register, handleSubmit, formState: { errors } } = useForm();
     const { signup,user,login,logout } = useContext(AuthContext);
+    const [error, setError] = useState(null);
     
     //calls obj made elsewhere sort of like global variable
-    const location = useLocation();
+    const location = useLocation();//to find route name
     const mode = location.pathname === '/signup' ? 'signup' : 'login'
     const nav = useNavigate();//to go to a page after logged in / action done
     function onSubmit(data){
+        setError(null)
         let result;
         if(mode==='signup'){
             result = signup(data.email,data.password);
@@ -48,6 +50,7 @@ export default function Auth(){
                     <label>Enter password</label>
                     <input type="password" placeholder="Password" {...register("password", {required: "Password is required", minLength: { value: 6, message: "Password must be at least 6 characters" }})} />
                     {errors.password && <p className='error'>{errors.password.message}</p>}
+                    {error && <p className='error'>{error}</p>}
                     <button type="submit" className='btn2'>{mode=== 'signup' ? "Sign Up" : "Login"}</button>
                 </form>
                 <div className='smallbtn'>

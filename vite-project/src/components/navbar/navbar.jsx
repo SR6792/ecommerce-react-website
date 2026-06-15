@@ -11,7 +11,7 @@ export default function Navbar(){
             </div>
             <div className='div1'>
                 <Link to='/' className='d1'>Home</Link>
-                <Link to='/cart' className='d2'>Cart</Link>
+                <Link to='/check' className='d2'>Cart</Link>
             </div>
             <div className='div2'>
                 {/* choose what to display when not loggend in/ and when logged in */}
